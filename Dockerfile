@@ -21,6 +21,7 @@ RUN git clone https://github.com/certnanny/sscep.git && \
   rm -f openssl && \
   rm -rf sscep
 # cleaning up
-RUN apt-get remove -y git gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8
+RUN apt-get remove -y git gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 git-man libgcc-8-dev libc-dev-bin && \
+  apt-get clean
 
 WORKDIR /root
