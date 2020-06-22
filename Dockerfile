@@ -9,6 +9,7 @@ RUN apt-get install -y docker.io socat certbot cron git make gcc libssl-dev
 # installing acme.sh
 RUN curl https://get.acme.sh | sh && \
   cp /root/.acme.sh/acme.sh /usr/local/bin/ && \
+  /root/.acme.sh/acme.sh --uninstall && \
   rm -rf /root/.acme.sh
 # installing sscep
 RUN git clone https://github.com/certnanny/sscep.git && \
