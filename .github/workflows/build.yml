@@ -41,7 +41,7 @@ jobs:
         echo ::set-output name=TAG::$TAG
     - name: Build docker image
       run: |
-        docker build \
+        docker build . \
             --no-cache \
             -t "${{ steps.create_docker_tag.outputs.TAG }}" \
             --build-arg BASE_IMAGE_TAG=${{ matrix.baseImageTag }} \
