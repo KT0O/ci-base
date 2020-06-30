@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron:  '0 0 * * *'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        scalaVersion: ['2.12.11', '2.13.3']
+        javaTag: ['8u252', '11.0.7']
+        include:
+          - javaTag: '8u252'
+            baseImageTag: '8u252-jdk-buster'
+          - javaTag: '11.0.7'
+            baseImageTag: '11.0.7-jdk-buster'
+    steps:
+    - uses: actions/checkout@v1
+    - name: Get latest SBT version
+      id: get_sbt_version
+      run: |
+        SBT_VERSION=$(
+          curl -s https://dl.bintray.com/sbt/debian/Packages |
+          grep -i -w 'sbt-[0-9]*\.[0-9]*\.[0-9]*\.deb' -o |
+          grep -i -w '[0-9]*\.[0-9]*\.[0-9]*' -o |
+          sort -V | tail -n 1)
+        echo ::set-output name=VERSION::$SBT_VERSION
+    - name: Create docker tag
+      id: create_docker_tag
+      run: |
+        TAG=aauevt/ci-base:${{ matrix.javaTag }}_${{ steps.get_sbt_version.outputs.VERSION }}_${{ matrix.scalaVersion }}
+        echo ::set-output name=TAG::$TAG
+    - name: Build docker image
+      run: |
+        docker build \
+            --no-cache \
+            -t "${{ steps.create_docker_tag.outputs.TAG }}" \
+            --build-arg BASE_IMAGE_TAG=${{ matrix.baseImageTag }} \
+            --build-arg SBT_VERSION=${{ steps.get_sbt_version.outputs.VERSION }} \
+            --build-arg SCALA_VERSION=${{ matrix.scalaVersion }}
+    - name: Push image to DockerHub
+      if: github.event_name != 'pull_request'
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u aauevt --password-stdin
+        docker push ${{ steps.create_docker_tag.outputs.TAG }}
