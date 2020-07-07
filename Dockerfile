@@ -88,7 +88,7 @@ RUN apt-get update && \
   cd /root && \
   rm -f openssl && \
   rm -rf sscep && \
-  apt-get remove -y git gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 git-man libgcc-8-dev libc-dev-bin && \
+  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
