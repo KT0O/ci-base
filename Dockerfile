@@ -76,6 +76,12 @@ RUN curl https://get.acme.sh | sh && \
   /root/.acme.sh/acme.sh --uninstall && \
   rm -rf /root/.acme.sh
 
+# installing lego
+RUN curl -L -o lego.tgz https://github.com/go-acme/lego/releases/download/v3.8.0/lego_v3.8.0_linux_amd64.tar.gz && \
+  tar xzf lego.tgz && \
+  mv lego /usr/local/bin/ && \
+  rm -f lego.tgz CHANGELOG.md LICENSE
+
 # installing sscep
 RUN apt-get update && \
   apt-get install -y git make gcc libssl-dev && \
