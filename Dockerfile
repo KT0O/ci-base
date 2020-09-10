@@ -100,7 +100,7 @@ RUN apt-get update && \
   
 # installing libest
 RUN apt-get update && \
-  apt-get install -y git make gcc libssl-dev && \
+  apt-get install -y git make gcc libssl-dev liburiparser-dev && \
   cd /root && \
   curl -L -o libest.tar.gz https://github.com/cisco/libest/archive/r3.2.0.tar.gz && \
   tar xzf libest.tar.gz && \
@@ -108,7 +108,7 @@ RUN apt-get update && \
   ./configure --enable-client-only; make ; make install && \
   cd /root && \
   rm -rf /root/libest-r3.2.0 && \
-  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin && \
+  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin liburiparser-dev && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
   
