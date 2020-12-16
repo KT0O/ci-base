@@ -77,7 +77,7 @@ RUN curl https://get.acme.sh | sh && \
   rm -rf /root/.acme.sh
 
 # installing lego
-RUN curl -L -o lego.tgz https://github.com/go-acme/lego/releases/download/v3.8.0/lego_v3.8.0_linux_amd64.tar.gz && \
+RUN curl -L -o lego.tgz https://github.com/go-acme/lego/releases/download/v3.9.0/lego_v3.9.0_linux_amd64.tar.gz && \
   tar xzf lego.tgz && \
   mv lego /usr/local/bin/ && \
   rm -f lego.tgz CHANGELOG.md LICENSE
