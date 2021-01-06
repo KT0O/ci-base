@@ -88,6 +88,8 @@ RUN apt-get update && \
   git clone https://github.com/certnanny/sscep.git && \
   ln -s /usr/lib/x86_64-linux-gnu openssl && \
   cd /root/sscep && \
+  git fetch --all --tags && \
+  git checkout tags/v0.7.0 -b v0.7.0-branch && \
   ./Configure && \
   make && \
   cp /root/sscep/sscep_static /usr/local/bin/sscep && \
