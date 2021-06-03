@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        scalaVersion: ['2.12.12', '2.13.4']
-        javaTag: ['8u262', '11.0.10']
+        scalaVersion: ['2.12.14', '2.13.6']
+        javaTag: ['8u262', '11.0.11']
         include:
           - javaTag: '8u262'
             baseImageTag: '8u262-jdk-buster'
           - javaTag: '11.0.10'
-            baseImageTag: '11.0.10-jdk-buster'
+            baseImageTag: '11.0.11-jdk-buster'
     steps:
     - uses: actions/checkout@v1
     - name: Get latest SBT version
