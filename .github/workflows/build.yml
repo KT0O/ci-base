@@ -21,7 +21,7 @@ jobs:
         include:
           - javaTag: '8u262'
             baseImageTag: '8u262-jdk-buster'
-          - javaTag: '11.0.10'
+          - javaTag: '11.0.11'
             baseImageTag: '11.0.11-jdk-buster'
     steps:
     - uses: actions/checkout@v1
