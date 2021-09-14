@@ -66,7 +66,7 @@ RUN \
 ## -w /home/sbtuser
 WORKDIR /root  
 
-# installing docker from underlying distro, for DinD
+# installing docker client and the rest
 RUN apt-get install -y docker.io socat certbot cron jq rpm && \
   rm -rf /var/lib/apt/lists/*
 
