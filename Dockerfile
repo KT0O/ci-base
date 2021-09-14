@@ -67,7 +67,7 @@ RUN \
 WORKDIR /root  
 
 # installing docker from underlying distro, for DinD
-RUN apt-get install -y docker.io socat certbot cron jq && \
+RUN apt-get install -y docker.io socat certbot cron jq rpm && \
   rm -rf /var/lib/apt/lists/*
 
 # installing acme.sh
