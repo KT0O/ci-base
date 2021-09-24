@@ -67,7 +67,7 @@ RUN \
 WORKDIR /root  
 
 # installing docker client and the rest
-RUN apt-get install -y docker.io socat certbot cron jq rpm && \
+RUN apt-get install -y docker.io socat certbot cron jq rpm ruby-asciidoctor-pdf && \
   rm -rf /var/lib/apt/lists/*
 
 # installing acme.sh
