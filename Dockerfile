@@ -67,7 +67,7 @@ RUN \
 WORKDIR /root  
 
 # installing the rest
-RUN apt-get install -y software-properties-common socat certbot cron jq rpm ruby-asciidoctor-pdf && \
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm ruby-asciidoctor-pdf && \
   rm -rf /var/lib/apt/lists/*
 
 # installing docker client
