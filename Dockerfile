@@ -66,15 +66,15 @@ RUN \
 ## -w /home/sbtuser
 WORKDIR /root  
 
+# installing the rest
+RUN apt-get install -y software-properties-common socat certbot cron jq rpm ruby-asciidoctor-pdf && \
+  rm -rf /var/lib/apt/lists/*
+
 # installing docker client
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
   add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" && \
   apt update && \
   apt install docker-ce
-
-# installing the rest
-RUN apt-get install -y socat certbot cron jq rpm ruby-asciidoctor-pdf && \
-  rm -rf /var/lib/apt/lists/*
 
 # installing acme.sh
 RUN curl https://get.acme.sh | sh && \
