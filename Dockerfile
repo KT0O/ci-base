@@ -66,8 +66,14 @@ RUN \
 ## -w /home/sbtuser
 WORKDIR /root  
 
-# installing docker client and the rest
-RUN apt-get install -y docker.io socat certbot cron jq rpm ruby-asciidoctor-pdf && \
+# installing docker client
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - && \
+  add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" && \
+  apt update && \
+  apt install docker-ce
+
+# installing the rest
+RUN apt-get install -y socat certbot cron jq rpm ruby-asciidoctor-pdf && \
   rm -rf /var/lib/apt/lists/*
 
 # installing acme.sh
