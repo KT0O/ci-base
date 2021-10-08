@@ -67,7 +67,7 @@ RUN \
 WORKDIR /root    
 
 # installing the rest
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm python3 python3-pip && \
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm python3 python3-pip aspell aspell-en aspell-fr && \
   pip3 install pyspelling && \
   rm -rf /var/lib/apt/lists/*
 
