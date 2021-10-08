@@ -64,10 +64,11 @@ RUN \
 ## Users wanting to use this container as non-root should combine the two following arguments
 ## -u sbtuser
 ## -w /home/sbtuser
-WORKDIR /root  
+WORKDIR /root    
 
 # installing the rest
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm ruby-asciidoctor-pdf && \
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm python3 python3-pip && \
+  pip install pyspelling && \
   rm -rf /var/lib/apt/lists/*
 
 # installing docker client
