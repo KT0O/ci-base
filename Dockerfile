@@ -124,7 +124,7 @@ RUN apt-get update && \
 # installing newman
 RUN apt-get update && \
   apt-get install -y npm && \
-  npm install -g newman && 
+  npm install -g newman && \
   npm install -g newman-reporter-junitfull && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
