@@ -70,6 +70,7 @@ WORKDIR /root
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm nginx python3 python3-pip aspell aspell-en aspell-fr && \
   pip3 install pyspelling && \
   pip3 install lemoncheesecake[junit] && \
+  pip3 install lemoncheesecake-requests && \
   rm -rf /var/lib/apt/lists/*
 
 # installing docker client
