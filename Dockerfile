@@ -103,7 +103,7 @@ RUN apt-get update && \
   make && \
   make install && \
   rm -rf sscep && \
-  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin pkg-config libtool automake autoconf && \
+  apt-get remove -y gcc libssl-dev libc6-dev gcc-10 linux-libc-dev cpp cpp-10 libgcc-10-dev libc-dev-bin pkg-config libtool automake autoconf && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
   
@@ -117,7 +117,7 @@ RUN apt-get update && \
   ./configure --enable-client-only --with-uriparser-dir=/usr/include/uriparser; make ; make install && \
   cd /root && \
   rm -rf /root/libest-r3.2.0 && \
-  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin liburiparser-dev && \
+  apt-get remove -y gcc libssl-dev libc6-dev gcc-10 linux-libc-dev cpp cpp-10 libgcc-10-dev libc-dev-bin liburiparser-dev && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
   
