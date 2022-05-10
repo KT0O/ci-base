@@ -99,6 +99,7 @@ RUN apt-get update && \
   git fetch --all --tags && \
   git checkout tags/v0.10.0 -b v0.10.0-branch && \
   ./bootstrap.sh && \
+  autoreconf -fi && \
   ./configure && \
   make && \
   make install && \
