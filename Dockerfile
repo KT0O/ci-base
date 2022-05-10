@@ -93,18 +93,17 @@ RUN curl -L -o lego.tgz https://github.com/go-acme/lego/releases/download/v3.9.0
 
 # installing sscep
 RUN apt-get update && \
-  apt-get install -y git make gcc libssl-dev libtool automake autoconf && \
+  apt-get install -y git make gcc libssl-dev pkg-config libtool automake autoconf && \
   git clone https://github.com/certnanny/sscep.git && \
   cd /root/sscep && \
   git fetch --all --tags && \
   git checkout tags/v0.10.0 -b v0.10.0-branch && \
   ./bootstrap.sh && \
-  autoreconf -fi && \
   ./configure && \
   make && \
   make install && \
   rm -rf sscep && \
-  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin libtool automake autoconf && \
+  apt-get remove -y gcc libssl-dev libc6-dev gcc-8 linux-libc-dev cpp cpp-8 libgcc-8-dev libc-dev-bin pkg-config libtool automake autoconf && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
   
