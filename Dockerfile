@@ -114,6 +114,7 @@ RUN apt-get update && \
   curl -L -o libest.tar.gz https://github.com/cisco/libest/archive/r3.2.0.tar.gz && \
   tar xzf libest.tar.gz && \
   cd /root/libest-r3.2.0 && \
+  perl -pi -e "s/int e_ctx_ssl_exdata_index/\/\/int e_ctx_ssl_exdata_index/" src/est/est_locl.h && \
   ./configure --enable-client-only --with-uriparser-dir=/usr/include/uriparser; make ; make install && \
   cd /root && \
   rm -rf /root/libest-r3.2.0 && \
