@@ -144,8 +144,6 @@ RUN echo -e "-----BEGIN CERTIFICATE-----\nMIIFeDCCA2CgAwIBAgIITDM8XNhFcKUwDQYJKo
   
 RUN curl -L -o /usr/local/bin/dind https://raw.githubusercontent.com/moby/moby/20.10/hack/dind ; chmod +x /usr/local/bin/dind
 
-ENTRYPOINT ["dind"]
-
 WORKDIR /root
 
-
+ENTRYPOINT ["dind"]
