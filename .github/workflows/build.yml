@@ -16,12 +16,12 @@ jobs:
     strategy:
       matrix:
         scalaVersion: ['2.12.14', '2.13.8']
-        javaTag: ['8u332', '11.0.16']
+        javaTag: ['8u332', '11.0.18']
         include:
           - javaTag: '8u332'
             baseImageTag: '8u332-jdk-bullseye'
-          - javaTag: '11.0.16'
-            baseImageTag: '11.0.16-jdk-bullseye'
+          - javaTag: '11.0.18'
+            baseImageTag: '11.0.18-jdk-bullseye'
     steps:
     - uses: actions/checkout@v1
     - name: Get latest SBT version
