@@ -21,7 +21,7 @@ jobs:
           - javaTag: '8u332'
             baseImageTag: '8u332-jdk-bullseye'
           - javaTag: '11.0.17'
-            baseImageTag: '11.0.17-jdk-bullseye'
+            baseImageTag: 'eclipse-temurin:11.0.17_8-jre-focal'
     steps:
     - uses: actions/checkout@v1
     - name: Get latest SBT version
