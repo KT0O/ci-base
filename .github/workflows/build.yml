@@ -16,10 +16,8 @@ jobs:
     strategy:
       matrix:
         scalaVersion: ['2.12.14', '2.13.8']
-        javaTag: ['8u332', '11.0.17']
+        javaTag: ['11.0.17']
         include:
-          - javaTag: '8u332'
-            baseImageTag: '8u332-jdk-bullseye'
           - javaTag: '11.0.17'
             baseImageTag: 'eclipse-temurin:11.0.17_8-jre-focal'
     steps:
