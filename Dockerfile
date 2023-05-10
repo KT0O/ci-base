@@ -2,7 +2,7 @@
 
 # Pull base image
 ARG BASE_IMAGE_TAG
-FROM openjdk:${BASE_IMAGE_TAG:-8u252-jdk-buster}
+FROM eclipse-temurin:${BASE_IMAGE_TAG:-8u252-jdk-buster}
 
 # Env variables
 ARG SCALA_VERSION
