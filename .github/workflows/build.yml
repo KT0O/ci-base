@@ -21,7 +21,7 @@ jobs:
         javaTag: ['11.0.19']
         include:
           - javaTag: '11.0.19'
-            baseImageTag: '11.0.19_10-jdk-focal'
+            baseImageTag: '11.0.19_7-jdk-focal'
     steps:
     - uses: actions/checkout@v1
     - name: Get latest SBT version
