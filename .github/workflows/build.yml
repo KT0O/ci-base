@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        scalaVersion: ['2.12.14', '2.13.8']
+        scalaVersion: ['2.12.14', '2.13.11']
         javaTag: ['11.0.19']
         include:
           - javaTag: '11.0.19'
