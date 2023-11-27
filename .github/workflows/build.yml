@@ -20,8 +20,8 @@ jobs:
         scalaVersion: ['2.13.12']
         javaTag: ['11.0.20']
         include:
-          - javaTag: '11.0.19'
-            baseImageTag: '11.0.19_7-jdk-focal'
+          - javaTag: '11.0.20'
+            baseImageTag: '11.0.20.1_1-jdk-focal'
     steps:
     - uses: actions/checkout@v1
     - name: Get latest SBT version
