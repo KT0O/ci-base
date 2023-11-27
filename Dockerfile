@@ -123,8 +123,11 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
   
 # installing newman
-RUN wget -qO- https://deb.nodesource.com/setup_18.x | bash - && apt-get update && \
-  apt-get install -y npm && \
+RUN mkdir -p /etc/apt/keyrings && \
+  curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+  echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list && \
+  apt-get update && \
+  apt-get install -y nodejs npm && \
   npm install -g newman@5.3.2 newman-reporter-junitfull newman-reporter-htmlextra && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
