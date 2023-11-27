@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        scalaVersion: ['2.12.14', '2.13.11']
-        javaTag: ['11.0.19']
+        scalaVersion: ['2.13.12']
+        javaTag: ['11.0.20']
         include:
           - javaTag: '11.0.19'
             baseImageTag: '11.0.19_7-jdk-focal'
