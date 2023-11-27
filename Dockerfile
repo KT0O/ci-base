@@ -123,7 +123,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
   
 # installing newman
-RUN apt-get update && \
+RUN wget -qO- https://deb.nodesource.com/setup_18.x | bash - && apt-get update && \
   apt-get install -y npm && \
   npm install -g newman@5.3.2 newman-reporter-junitfull newman-reporter-htmlextra && \
   apt-get clean && \
