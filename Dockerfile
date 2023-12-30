@@ -67,7 +67,7 @@ RUN \
 WORKDIR /root    
 
 # installing the rest
-RUN apt-get install -y apt-transport-https xxd ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm nginx python3 python3-pip aspell aspell-en aspell-fr qemu-user softhsm2 && \
+RUN apt-get install -y apt-transport-https xxd ca-certificates curl gnupg2 software-properties-common socat certbot cron jq rpm nginx python3 python3-pip aspell aspell-en aspell-fr qemu-user softhsm2 libxml2-dev libxslt1-dev && \
   pip3 install pyspelling && \
   pip3 install lemoncheesecake[junit] && \
   pip3 install lemoncheesecake-requests && \
