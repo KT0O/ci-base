@@ -18,10 +18,10 @@ jobs:
     strategy:
       matrix:
         scalaVersion: ['2.13.12']
-        javaTag: ['11.0.20']
+        javaTag: ['17.0.10']
         include:
-          - javaTag: '11.0.20'
-            baseImageTag: '11.0.20.1_1-jdk-focal'
+          - javaTag: '17.0.10'
+            baseImageTag: '17.0.10_7-jdk-focal'
     steps:
     - uses: actions/checkout@v1
     - name: Get latest SBT version
