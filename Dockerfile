@@ -123,15 +123,18 @@ RUN apt-get update && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
   
-# installing newman
+# installing bru
 RUN mkdir -p /etc/apt/keyrings && \
   curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
   echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
   apt-get update && \
   apt-get install -y nodejs && \
-  npm install -g newman@5.3.2 newman-reporter-junitfull newman-reporter-htmlextra && \
+  npm install -g @usebruno/cli@1.33.0 && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
+
+# modifying the bru CLI to fix https://github.com/usebruno/bruno/issues/3311
+RUN perl -pi -e "s/2\)/2\).replaceAll\('\\$','\\$\\$\\$\\$'\)/g" /usr/lib/node_modules/@usebruno/cli/src/reporters/html.js
   
 # installing mongodb
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -&& \
